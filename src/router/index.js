@@ -1,5 +1,8 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Entrepreneur from '../views/Entrepreneur.vue'
+import Investor from '../views/Investor.vue'
+import Contact from '../views/Contact.vue'
 
 const routes = [
   {
@@ -7,19 +10,43 @@ const routes = [
     name: 'home',
     component: HomeView
   },
+
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/entrepreneur',
+    name: 'entrepreneur',
+    component: Entrepreneur,
+    props: true,
+  },
+  
+  {
+    path: '/investor',
+    name: 'investor',
+    component: Investor,
+    props: true,
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact,
+    props: true,
   }
+
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
+  history: createWebHistory(),
+  routes,
+  //***creer scroll naar (id)***/
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth', 
+      } 
+    } else{
+      return {top: 0} //Zet de positie terug naar top van de pagina
+    }
+  }
 })
 
 export default router
