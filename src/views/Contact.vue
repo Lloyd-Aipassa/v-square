@@ -1,29 +1,41 @@
 <template>
 	<section class="hero">
-
 		<img v-bind:srcset="`${photos.S} 340w, ${photos.L} 1720w,	`" alt="Header imges of vegan food"
 			class="animate-right-left">
-
-		<h1 id="contact">CONTACT</h1>
-		<p class="coffee">Thinking about joining us or maybee just a cup of coffee? Please get in touch.</p>
-		<div class="contact-card">
-			<h4>Lucas Rijckmans</h4>
-			<img src="../assets/contact/telefoon.svg" alt="">
-			<p>+31 63 02 61 684</p>
-			<img src="../assets/contact/email.svg" alt="">
-			<p>lucas@v-square.eu</p>
-		</div>
-		<div class="contact-card">
-			<h4>Felix Hillen</h4>
-			<img src="../assets/contact/telefoon.svg" alt="">
-			<p>+31 63 02 61 684</p>
-			<img src="../assets/contact/email.svg" alt="">
-			<p>lucas@v-square.eu</p>
-		</div>
-		<div class="contact-card">
-			<h4>Address</h4>
-			<img src="../assets/contact/adres.svg" alt="">
-			<p>Keizersgracht 649 <br> 1017 DT Amsterdam</p>
+		<div class="contact-container">
+			<span>
+				<h1 id="contact">CONTACT</h1>
+				<p class="coffee">Thinking about joining us or maybee just a cup of coffee? Please get in touch.</p>
+			</span>
+			<div class="contact-card">
+				<h4>Lucas Rijckmans</h4>
+				<div class="contact-card-info">
+					<img src="../assets/contact/telefoon.svg" alt="">
+					<p>+31 63 02 61 684</p>
+				</div>
+				<div class="contact-card-info">
+					<img src="../assets/contact/email.svg" alt="">
+					<p>lucas@v-square.eu</p>
+				</div>
+			</div>
+			<div class="contact-card">
+				<h4>Felix Hillen</h4>
+				<div class="contact-card-info">
+					<img src="../assets/contact/telefoon.svg" alt="">
+					<p>+31 63 02 61 684</p>
+				</div>
+				<div class="contact-card-info">
+					<img src="../assets/contact/email.svg" alt="">
+					<p>lucas@v-square.eu</p>
+				</div>
+			</div>
+			<div class="contact-card">
+				<h4>Address</h4>
+				<div class="contact-card-info">
+					<img src="../assets/contact/adres.svg" class="img-adres" alt="">
+					<p>Keizersgracht 649 <br> 1017 DT Amsterdam</p>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -36,16 +48,18 @@
 
 	<section class="interested">
 		<div class="animatie-6">
-			<h2>
-				QUESTIONS <br> 	OR MORE INFO
-			</h2>
-			<p>
-				<span>
-					We are constantly expanding our platform.
-				</span>
-				Are you a Vegan/Vegetarian restaurant/catering chain, or
-				Do you want to work at a company that puts people and planetary health first?
-			</p>
+			<span>
+				<h2>
+					QUESTIONS <br> OR MORE INFO
+				</h2>
+				<p>
+					<span>
+						We are constantly expanding our platform.
+					</span><br>
+					Are you a Vegan/Vegetarian restaurant/catering chain, or
+					Do you want to work at a company that puts people and planetary health first?
+				</p>
+			</span>
 			<div class="form">
 				<Form />
 			</div>
@@ -95,20 +109,147 @@ export default {
 
 
 .hero h1 {
-	max-width: 1315px;
-	margin: 60px 0 30px 0;
+	max-width: 315px;
+	margin: 0 0 20px;
+	font-size: 4rem;
+}
+
+.hero h4 {
+	font-size: 1.5rem;
+	color: var(--vs-color);
+	font-weight: 600;
 }
 
 .hero p {
-	max-width: 996px;
+	max-width: 360px;
 }
 
 .hero img {
 	width: 100%;
 }
 
+.contact-container {
+	padding: 65px 0 115px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-right: 190px;
+}
+
+.contact-card-info {
+	display: flex;
+	gap: 20px;
+}
+
 .contact-card img {
 	width: 1.0625rem;
+}
+
+.contact-card img.img-adres {
+	align-self: self-start;
+}
+
+
+.interested .animatie-6 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 80px 18%;
+}
+
+.interested p {
+	max-width: 526px;
+	font-size: 1.125rem;
+}
+.interested p span{
+	color: var(--vs-color);
+	font-weight: 700;
+}
+
+.form {
+	width: 541px;
+}
+
+.maps {
+	filter: grayscale(75%);
+}
+
+@media (max-width: 720px) {
+	.hero {
+		margin-left: 0px;
+		text-align: center;
+	}
+
+
+	.hero h1 {
+		max-width: 100%;
+		margin: 0 0 20px;
+		font-size: 2.375rem;
+		font-weight: 600;
+	}
+
+	.hero h4 {
+		font-size: 1.5rem;
+	}
+
+	.hero img {
+		width: 100%;
+	}
+
+	.contact-container {
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		margin-right: 0px;
+		gap: 40px;
+	}
+
+	.contact-card-info {
+		display: flex;
+		gap: 20px;
+	}
+
+	.contact-card img {
+		display: none;
+	}
+
+	.contact-card p {
+		width: 100%;
+	}
+
+
+
+	.maps {
+		filter: grayscale(75%);
+		margin-bottom: 100px;
+	}
+
+	
+.interested .animatie-6 {
+	display: flex;
+	flex-direction: column;
+	padding: 0 24px 80px;
+	text-align: center;
+}
+
+.interested p {
+	max-width: 526px;
+	font-size: 1rem;
+	margin: 30px 0 60px;
+}
+.interested p span{
+	color: var(--vs-color);
+	font-weight: 700;
+}
+
+.form {
+	width: 100%;
+}
+
+.maps {
+	filter: grayscale(75%);
+}
+
 
 }
 

@@ -395,6 +395,11 @@ export default {
   margin: auto;
 }
 
+.form {
+	max-width: 420px;
+  margin: auto;
+}
+
 @media (max-width: 720px) {
 
   .hero {

@@ -376,6 +376,11 @@ img.join-img {
   margin: auto;
 }
 
+.form {
+	max-width: 420px;
+  margin: auto;
+}
+
 @media (max-width: 1440px) {
 
   .hero {

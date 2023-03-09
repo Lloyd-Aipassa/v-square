@@ -41,7 +41,7 @@ export default {
 <style scoped>
 form {
     gap: 10px;
-    max-width: 420px;
+    width: 100%;
     display: block;
     margin: 0 auto;
 }
