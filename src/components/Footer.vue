@@ -14,16 +14,16 @@
                     <h3>ENTREPRENEURS</h3>
                 </router-link>
                 <router-link to="/Entrepreneur#perfect-ingredients">Challenge & Opportunity</router-link>
-                <router-link to="/Entrepreneur">Why join V-SQUARE</router-link>
-                <router-link to="/Entrepreneur">Our story</router-link>
+                <router-link to="/Entrepreneur#join">Why join V-SQUARE</router-link>
+                <router-link to="/Entrepreneur#our-story-entrepeneur">Our story</router-link>
             </nav>
             <nav>
                 <router-link to="/Investor">
                     <h3>INVESTORS</h3>
                 </router-link>
-                <router-link to="/Investor">Challenge & Opportunity</router-link>
-                <router-link to="/Investor">Why invest in V-SQUARE</router-link>
-                <router-link to="/Investor">Our story</router-link>
+                <router-link to="/Investor#the-challenge-investor">Challenge & Opportunity</router-link>
+                <router-link to="/Investor#why-invest">Why invest in V-SQUARE</router-link>
+                <router-link to="/Investor#our-story-investor">Our story</router-link>
             </nav>
         </div>
     </footer>
@@ -44,7 +44,7 @@ footer {
     background-color: var(--vs-color);
 }
 
-.footer-container{
+.footer-container {
     height: 100%;
     width: 1000px;
     margin: auto;
@@ -68,8 +68,8 @@ footer nav a {
 }
 
 footer nav h3 {
-    font-size:23px!important ;
-    font-weight: 500!important;
+    font-size: 23px !important;
+    font-weight: 500 !important;
     margin-bottom: 15px;
 }
 
@@ -94,10 +94,11 @@ footer nav h3 {
         height: auto;
     }
 
-    .footer-container{
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
+    .footer-container {
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
-}</style>
+</style>

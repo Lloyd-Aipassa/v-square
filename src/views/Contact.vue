@@ -1,6 +1,9 @@
 <template>
+	<section id="desktop-menu">
+		<DesktopMenu :menu="menu" :menuScroll="menuScroll" />
+	</section>
 	<section class="hero">
-		<img v-bind:srcset="`${photos.S} 340w, ${photos.L} 1720w,	`" alt="Header imges of vegan food"
+		<img v-bind:srcset="`${photos.S} 340w, ${photos.L} 1720w,`" alt="Header imges of vegan food"
 			class="animate-right-left">
 		<div class="contact-container">
 			<span>
@@ -39,14 +42,14 @@
 		</div>
 	</section>
 
-	<section class="maps">
+	<section id="address" class="maps">
 		<iframe
 			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d609.0910250469004!2d4.894649627661836!3d52.36381765554423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609952b37d5dd%3A0xf021d343a37b04f2!2sKeizersgracht%20649%2C%201017%20DT%20Amsterdam!5e0!3m2!1snl!2snl!4v1678370251446!5m2!1snl!2snl"
 			width="100%" height="372" style="border:0;" allowfullscreen="" loading="lazy"
 			referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</section>
 
-	<section class="interested">
+	<section id="questions" class="interested">
 		<div class="animatie-6">
 			<span>
 				<h2>
@@ -70,7 +73,9 @@
 </template>
 
 <script>
+import { onMounted, computed } from 'vue'
 import Form from '@/components/Form.vue'
+import DesktopMenu from '@/components/DesktopMenu.vue'
 import Footer from '@/components/Footer.vue'
 import gsap from 'gsap'
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -88,15 +93,30 @@ let photos = {
 export default {
 	name: 'Contact',
 	components: {
+		DesktopMenu,
 		Form,
 		Footer
 	},
-	computed: {
-		photos() { return photos }
-	},
-	mounted() {
-		// gsap.to('.hero',{ opacity: 1, duration: 2 })
-		tl.to('.animate-right-left', { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', duration: 0.35 })
+	setup() {
+		const menu = [
+			{ title: 'home', link: '/' },
+			{ title: 'Investor', link: '/Investor' },
+			{ title: 'Entrepeneur', link: '/Entrepreneur' },
+		]
+		const menuScroll = [
+			{ title2: 'Address', link2: '/Contact#address'},
+			{ title2: 'Questions', link2: '/Contact#questions'},
+		]
+		
+		onMounted(()=>{
+			tl.to('.animate-right-left', { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', duration: 0.35 })
+		})
+
+		computed(()=>{
+			photos() 
+		})
+	
+		return { menu, menuScroll, photos}
 	},
 }
 
@@ -161,7 +181,8 @@ export default {
 	max-width: 526px;
 	font-size: 1.125rem;
 }
-.interested p span{
+
+.interested p span {
 	color: var(--vs-color);
 	font-weight: 700;
 }
@@ -224,31 +245,32 @@ export default {
 		margin-bottom: 100px;
 	}
 
-	
-.interested .animatie-6 {
-	display: flex;
-	flex-direction: column;
-	padding: 0 24px 80px;
-	text-align: center;
-}
 
-.interested p {
-	max-width: 526px;
-	font-size: 1rem;
-	margin: 30px 0 60px;
-}
-.interested p span{
-	color: var(--vs-color);
-	font-weight: 700;
-}
+	.interested .animatie-6 {
+		display: flex;
+		flex-direction: column;
+		padding: 0 24px 80px;
+		text-align: center;
+	}
 
-.form {
-	width: 100%;
-}
+	.interested p {
+		max-width: 526px;
+		font-size: 1rem;
+		margin: 30px 0 60px;
+	}
 
-.maps {
-	filter: grayscale(75%);
-}
+	.interested p span {
+		color: var(--vs-color);
+		font-weight: 700;
+	}
+
+	.form {
+		width: 100%;
+	}
+
+	.maps {
+		filter: grayscale(75%);
+	}
 
 
 }
@@ -257,4 +279,5 @@ export default {
 .animate-right-left {
 	clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 	transition: all 1.0s;
-}</style>
+}
+</style>

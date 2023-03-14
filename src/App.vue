@@ -28,6 +28,7 @@ export default {
 
 body {
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -46,7 +47,8 @@ h2 {
   font-family: 'Poppins', sans-serif;
 }
 
-h3, h4 {
+h3,
+h4 {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -57,6 +59,7 @@ p {
   color: #3A3A3A;
   font-family: 'Poppins', sans-serif;
 }
+
 a {
   font-family: 'Poppins', sans-serif;
 }
@@ -81,17 +84,17 @@ nav a.router-link-exact-active {
     font-family: 'Poppins', sans-serif;
   }
 
-  h2{
+  h2 {
     font-size: 38px;
     line-height: 37px;
   }
 
   p {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 26px;
-  color: #3A3A3A;
-  font-family: 'Poppins', sans-serif;
-}
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    color: #3A3A3A;
+    font-family: 'Poppins', sans-serif;
+  }
 }
 </style>

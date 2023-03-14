@@ -1,4 +1,7 @@
 <template>
+    <section id="desktop-menu">
+		<DesktopMenu :menu="menu" :menuScroll="menuScroll" />
+	</section>
   <section class="hero">
     <img src="../assets/header-images/header-investor.webp" v-bind:srcset="`${photos.S} 720w, ${photos.L} 1720w,	`"
       alt="Header imges of vegan food" class="animate-right-left">
@@ -6,11 +9,11 @@
     </h1>
   </section>
 
-  <section id="chall" class="chall animatie-5">
+  <section id="the-challenge-investor" class="chall animatie-5">
     <TheChallenge :challenge="challenge" />
   </section>
 
-  <section>
+  <section id="why-invest">
     <WhyInvest />
   </section>
 
@@ -53,7 +56,7 @@
     </div>
   </section>
 
-  <section class="our-story" id="our-story">
+  <section class="our-story" id="our-story-investor">
     <div class="animatie-4">
       <h2>
         OUR STORY
@@ -123,6 +126,8 @@
 
 <script>
 // @ is an alias to /src
+import { onMounted, computed } from 'vue'
+import DesktopMenu from '@/components/DesktopMenu.vue'
 import TheChallenge from '@/components/TheChallenge.vue'
 import WhyInvest from '@/components/WhyInvest.vue'
 import Team from '@/components/Team.vue'
@@ -143,6 +148,7 @@ let photos = {
 export default {
   name: 'Investor',
   components: {
+    DesktopMenu,
     TheChallenge,
     WhyInvest,
     Team,
@@ -150,75 +156,79 @@ export default {
     Footer
   },
 
-  data() {
-    return {
-      challenge: [
-        {
-          title: 'THE CHALLENGE',
-          bullits: [
-            {
-              image: require('../assets/cards/l1.svg'),
-              content: 'The food & protein transition is really taking off'
-            },
-            {
-              image: require('../assets/cards/l2.svg'),
-              content: 'Research shows that restaurants can help seduce more people to change their diets'
-            },
-            {
-              image: require('../assets/cards/l3.svg'),
-              content: 'Making sustainable food more attractive and conveniently available'
-            },
-            {
-              image: require('../assets/cards/l4.svg'),
-              content: 'Successful restaurant chains are still too small to make a true impact'
-            },
-            {
-              image: require('../assets/cards/l5.svg'),
-              content: 'And they lack the time, (often the experience) and capital to grow faster'
-            },
-          ]
-        },
+  setup() {
 
-        {
-          title: 'THE OPPORTUNITY',
-          bullits: [
-            {
-              image: require('../assets/cards/r1.svg'),
-              content: 'Invest in the best restaurant chains, home deliverers and caterers'
-            },
-            {
-              image: require('../assets/cards/r2.svg'),
-              content: 'Help them to improve and grow faster'
-            },
-            {
-              image: require('../assets/cards/r3.svg'),
-              content: 'With a platform for innovation and impact'
-            },
-            {
-              image: require('../assets/cards/r4.svg'),
-              content: 'With synergies and shared services'
-            },
-            {
-              image: require('../assets/cards/r5.svg'),
-              content: 'Build a group of high impact restaurant chains home deliverers and caterers!'
-            },
-            {
-              image: require('../assets/cards/r6.svg'),
-              content: 'A true powerhouse of sustainable out of home (and to the home) food brands'
-            },
-          ]
-        }
-      ],
-    }
-  },
-  computed: {
-    photos() { return photos }
-  },
+    const menu = [
+			{ title: 'Home', link: '/' },
+			// { title: 'Investor', link: '/Investor' },
+			{ title: 'Entrepeneur', link: '/Entrepreneur' },
+			{ title: 'Contact', link: '/Contact' },
+		]
+		const menuScroll = [
+			{ title2: 'Challenge & Opportunity', link2: '/Investor#the-challenge-investor'},
+			{ title2: 'Why join V-SQUARE', link2: '/Investor#why-invest'},
+			{ title2: 'Our story', link2: '/Investor#our-story-investor'},
+		]
 
-  mounted() {
-    this.scrollAnimation2();
-  }, methods: {
-    scrollAnimation2() {
+		const challenge = [
+			{
+				title: 'THE CHALLENGE',
+				bullits: [
+					{
+						image: require('../assets/cards/l1.svg'),
+						content: 'The food & protein transition is really taking off'
+					},
+					{
+						image: require('../assets/cards/l2.svg'),
+						content: 'Research shows that restaurants can help seduce more people to change their diets'
+					},
+					{
+						image: require('../assets/cards/l3.svg'),
+						content: 'Making sustainable food more attractive and conveniently available'
+					},
+					{
+						image: require('../assets/cards/l4.svg'),
+						content: 'Successful restaurant chains are still too small to make a true impact'
+					},
+					{
+						image: require('../assets/cards/l5.svg'),
+						content: 'And they lack the time, (often the experience) and capital to grow faster'
+					},
+				]
+			},
+
+			{
+				title: 'THE OPPORTUNITY',
+				bullits: [
+					{
+						image: require('../assets/cards/r1.svg'),
+						content: 'Invest in the best restaurant chains, home deliverers and caterers'
+					},
+					{
+						image: require('../assets/cards/r2.svg'),
+						content: 'Help them to improve and grow faster'
+					},
+					{
+						image: require('../assets/cards/r3.svg'),
+						content: 'With a platform for innovation and impact'
+					},
+					{
+						image: require('../assets/cards/r4.svg'),
+						content: 'With synergies and shared services'
+					},
+					{
+						image: require('../assets/cards/r5.svg'),
+						content: 'Build a group of high impact restaurant chains home deliverers and caterers!'
+					},
+					{
+						image: require('../assets/cards/r6.svg'),
+						content: 'A true powerhouse of sustainable out of home (and to the home) food brands'
+					},
+				]
+			}
+		]
+
+    onMounted(() => {
       tl.to('.animate-right-left', { clipPath: 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', duration: 0.35 })
         .to('.animatie-2', { clipPath: 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', duration: 0.5, delay: 0.7 })
 
@@ -269,10 +279,15 @@ export default {
       animatie6(triggerEl, triggerEl)
       animatie6(triggerForm, triggerForm)
       animatie6(triggerTeam, triggerTeam)
-    },
-  }
-}
+    })
 
+    computed(() => {
+      photos()
+    });
+
+    return { challenge, photos, menu, menuScroll}
+  },  
+}
 
 </script>
 

@@ -1,4 +1,7 @@
 <template>
+  <section id="desktop-menu">
+		<DesktopMenu :menu="menu" :menuScroll="menuScroll" />
+	</section>
   <section class="hero">
     <img src="../assets/header-images/header-entrepeneurs.webp" v-bind:srcset="`${photos.S} 720w, ${photos.L} 1720w,`"
       alt="Header imges of vegan food" class="animate-right-left">
@@ -38,7 +41,7 @@
     </div>
   </section>
 
-  <section class="our-story animatie-4" id="our-story">
+  <section class="our-story animatie-4" id="our-story-entrepeneur">
     <h2>
       OUR STORY
     </h2>
@@ -113,7 +116,9 @@
 
 
 <script>
-// @ is an alias to /src
+
+import { onMounted, computed } from 'vue'
+import DesktopMenu from '@/components/DesktopMenu.vue'
 import Team from '@/components/Team.vue'
 import TheChallenge from '@/components/TheChallenge.vue'
 import Form from '@/components/Form.vue'
@@ -133,77 +138,87 @@ let photos = {
 export default {
   name: 'Entrpreneur',
   components: {
+    DesktopMenu,
     TheChallenge,
     Team,
     Form,
     Footer
   },
 
-  data() {
-    return {
-      challenge: [
-        {
-          title: 'THE CHALLENGE',
-          bullits: [
-            {
-              image: require('../assets/cards/l1.svg'),
-              content: 'The food & protein transition is really taking off'
-            },
-            {
-              image: require('../assets/cards/l2.svg'),
-              content: 'Research shows that restaurants can help seduce more people to change their diets'
-            },
-            {
-              image: require('../assets/cards/l3.svg'),
-              content: 'Making sustainable food more attractive and conveniently available'
-            },
-            {
-              image: require('../assets/cards/l4.svg'),
-              content: 'Successful restaurant chains are still too small to make a true impact'
-            },
-            {
-              image: require('../assets/cards/l5.svg'),
-              content: 'And they lack the time, (often the experience) and capital to grow faster'
-            },
-          ]
-        },
+  setup() {
 
-        {
-          title: 'THE OPPORTUNITY',
-          bullits: [
-            {
-              image: require('../assets/cards/r1.svg'),
-              content: 'Be part of a group of the best high impact restaurant chains, home deliverers and caterers'
-            },
-            {
-              image: require('../assets/cards/r2.svg'),
-              content: 'Help them to improve and grow faster'
-            },
-            {
-              image: require('../assets/cards/r3.svg'),
-              content: 'With support from our scale-up platform for innovation and impact'
-            },
-            {
-              image: require('../assets/cards/r4.svg'),
-              content: 'And efficiently organized shared services in all relevant fields of expertise'
-            },
-            {
-              image: require('../assets/cards/r5.svg'),
-              content: 'Together we are a true powerhouse of sustainable food brands, a force for good!'
-            },
-          ]
-        }
-      ],
-    }
-  },
-  computed: {
-    photos() { return photos }
-  },
+    const menu = [
+			{ title: 'Home', link: '/' },
+			{ title: 'Investor', link: '/Investor' },
+			// { title: 'Entrepeneur', link: '/Entrepreneur' },
+			{ title: 'Contact', link: '/Contact' },
+		]
+		const menuScroll = [
+			{ title2: 'Challenge & Opportunity', link2: '/Entrepreneur#perfect-ingredients'},
+			{ title2: 'Why join V-SQUARE', link2: '/Entrepreneur#join'},
+			{ title2: 'Our story', link2: '/Entrepreneur#our-story-entrepeneur'},
+		]
 
-  mounted() {
-    this.scrollAnimation2();
-  }, methods: {
-    scrollAnimation2() {
+    const challenge = [
+      {
+        title: 'THE CHALLENGE',
+        bullits: [
+          {
+            image: require('../assets/cards/l1.svg'),
+            content: 'The food & protein transition is really taking off'
+          },
+          {
+            image: require('../assets/cards/l2.svg'),
+            content: 'Research shows that restaurants can help seduce more people to change their diets'
+          },
+          {
+            image: require('../assets/cards/l3.svg'),
+            content: 'Making sustainable food more attractive and conveniently available'
+          },
+          {
+            image: require('../assets/cards/l4.svg'),
+            content: 'Successful restaurant chains are still too small to make a true impact'
+          },
+          {
+            image: require('../assets/cards/l5.svg'),
+            content: 'And they lack the time, (often the experience) and capital to grow faster'
+          },
+        ]
+      },
+
+      {
+        title: 'THE OPPORTUNITY',
+        bullits: [
+          {
+            image: require('../assets/cards/r1.svg'),
+            content: 'Invest in the best restaurant chains, home deliverers and caterers'
+          },
+          {
+            image: require('../assets/cards/r2.svg'),
+            content: 'Help them to improve and grow faster'
+          },
+          {
+            image: require('../assets/cards/r3.svg'),
+            content: 'With a platform for innovation and impact'
+          },
+          {
+            image: require('../assets/cards/r4.svg'),
+            content: 'With synergies and shared services'
+          },
+          {
+            image: require('../assets/cards/r5.svg'),
+            content: 'Build a group of high impact restaurant chains home deliverers and caterers!'
+          },
+          {
+            image: require('../assets/cards/r6.svg'),
+            content: 'A true powerhouse of sustainable out of home (and to the home) food brands'
+          },
+        ]
+      }
+    ]
+
+    onMounted(() => {
+
       tl.to('.animate-right-left', { clipPath: 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', duration: 0.35 })
         .to('.animatie-2', { clipPath: 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', duration: 0.5, delay: 0.7 })
 
@@ -242,7 +257,7 @@ export default {
       const triggerForm = document.querySelector(".form")
       const triggerTeam = document.querySelector(".team")
       function animatie6(trigger, el) {
-        
+
         gsap.timeline({
           scrollTrigger: {
             start: 'top 95%',
@@ -254,8 +269,17 @@ export default {
       animatie6(triggerEl, triggerEl)
       animatie6(triggerForm, triggerForm)
       animatie6(triggerTeam, triggerTeam)
-    },
-  }
+
+    })
+
+    computed(() => {
+      photos()
+    })
+    return { challenge, photos, menu, menuScroll}
+  },
+
+
+
 }
 
 
@@ -377,7 +401,7 @@ img.join-img {
 }
 
 .form {
-	max-width: 420px;
+  max-width: 420px;
   margin: auto;
 }
 
