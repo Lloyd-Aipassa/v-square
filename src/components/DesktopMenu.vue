@@ -227,7 +227,7 @@ h4 {
 
     h3 {
     font-size: 2.1874rem;
-    margin: 0px;
+    margin: 1px;
 }
 }
 </style>
