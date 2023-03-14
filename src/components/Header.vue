@@ -39,7 +39,9 @@ nav a {
 
 @media (max-width: 720px) {
     header {
-        position: fixed;
+        position: sticky;
+        top: 0;
+        left: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;

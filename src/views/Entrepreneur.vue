@@ -231,7 +231,7 @@ export default {
           trigger: '.join',
         }
       })
-        .fromTo('.groente', { opacity: '1', y: '500' }, { opacity: '1', y: '-500' });
+        .fromTo('.groente', { opacity: '1', y: '300' }, { opacity: '1', y: '-300' });
 
       //   //=====animatie 4=======
       gsap.timeline({
@@ -320,7 +320,7 @@ img.join-img {
   position: absolute;
   right: 10%;
   top: 50%;
-  transform: translateY(-55%);
+  transform: translateY(-65%);
   width: 40%;
 }
 
@@ -464,7 +464,7 @@ img.join-img {
     position: absolute;
     right: 0px;
     top: -800px;
-    transform: translateY(0);
+    transform: translateY(-50px);
     width: 100%;
   }
 
@@ -514,7 +514,7 @@ img.join-img {
     font-size: 1rem;
     font-weight: 400;
     max-width: 589px;
-    padding: 20px 0;
+    padding: 0 20px 0;
   }
 
   .our-story-quote p {

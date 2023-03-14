@@ -90,7 +90,7 @@ footer nav h3 {
 @media (max-width: 720px) {
     footer {
         text-align: center;
-        padding: 50px 0;
+        padding: 15px 0 50px 0;
         height: auto;
     }
 
@@ -99,6 +99,26 @@ footer nav h3 {
         width: 100%;
         flex-direction: column;
         justify-content: center;
+    }
+
+    footer nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    footer nav h3 {
+        margin: 35px 10px 0 0;
+    }
+
+    .copyright {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .copyright p {
+        font-size: 15px;
+        align-self: center;
     }
 }
 </style>

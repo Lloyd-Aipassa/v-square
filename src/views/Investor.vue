@@ -1,7 +1,7 @@
 <template>
-    <section id="desktop-menu">
-		<DesktopMenu :menu="menu" :menuScroll="menuScroll" />
-	</section>
+  <section id="desktop-menu">
+    <DesktopMenu :menu="menu" :menuScroll="menuScroll" />
+  </section>
   <section class="hero">
     <img src="../assets/header-images/header-investor.webp" v-bind:srcset="`${photos.S} 720w, ${photos.L} 1720w,	`"
       alt="Header imges of vegan food" class="animate-right-left">
@@ -159,74 +159,74 @@ export default {
   setup() {
 
     const menu = [
-			{ title: 'Home', link: '/' },
-			// { title: 'Investor', link: '/Investor' },
-			{ title: 'Entrepeneur', link: '/Entrepreneur' },
-			{ title: 'Contact', link: '/Contact' },
-		]
-		const menuScroll = [
-			{ title2: 'Challenge & Opportunity', link2: '/Investor#the-challenge-investor'},
-			{ title2: 'Why join V-SQUARE', link2: '/Investor#why-invest'},
-			{ title2: 'Our story', link2: '/Investor#our-story-investor'},
-		]
+      { title: 'Home', link: '/' },
+      // { title: 'Investor', link: '/Investor' },
+      { title: 'Entrepeneur', link: '/Entrepreneur' },
+      { title: 'Contact', link: '/Contact' },
+    ]
+    const menuScroll = [
+      { title2: 'Challenge & Opportunity', link2: '/Investor#the-challenge-investor' },
+      { title2: 'Why join V-SQUARE', link2: '/Investor#why-invest' },
+      { title2: 'Our story', link2: '/Investor#our-story-investor' },
+    ]
 
-		const challenge = [
-			{
-				title: 'THE CHALLENGE',
-				bullits: [
-					{
-						image: require('../assets/cards/l1.svg'),
-						content: 'The food & protein transition is really taking off'
-					},
-					{
-						image: require('../assets/cards/l2.svg'),
-						content: 'Research shows that restaurants can help seduce more people to change their diets'
-					},
-					{
-						image: require('../assets/cards/l3.svg'),
-						content: 'Making sustainable food more attractive and conveniently available'
-					},
-					{
-						image: require('../assets/cards/l4.svg'),
-						content: 'Successful restaurant chains are still too small to make a true impact'
-					},
-					{
-						image: require('../assets/cards/l5.svg'),
-						content: 'And they lack the time, (often the experience) and capital to grow faster'
-					},
-				]
-			},
+    const challenge = [
+      {
+        title: 'THE CHALLENGE',
+        bullits: [
+          {
+            image: require('../assets/cards/l1.svg'),
+            content: 'The food & protein transition is really taking off'
+          },
+          {
+            image: require('../assets/cards/l2.svg'),
+            content: 'Research shows that restaurants can help seduce more people to change their diets'
+          },
+          {
+            image: require('../assets/cards/l3.svg'),
+            content: 'Making sustainable food more attractive and conveniently available'
+          },
+          {
+            image: require('../assets/cards/l4.svg'),
+            content: 'Successful restaurant chains are still too small to make a true impact'
+          },
+          {
+            image: require('../assets/cards/l5.svg'),
+            content: 'And they lack the time, (often the experience) and capital to grow faster'
+          },
+        ]
+      },
 
-			{
-				title: 'THE OPPORTUNITY',
-				bullits: [
-					{
-						image: require('../assets/cards/r1.svg'),
-						content: 'Invest in the best restaurant chains, home deliverers and caterers'
-					},
-					{
-						image: require('../assets/cards/r2.svg'),
-						content: 'Help them to improve and grow faster'
-					},
-					{
-						image: require('../assets/cards/r3.svg'),
-						content: 'With a platform for innovation and impact'
-					},
-					{
-						image: require('../assets/cards/r4.svg'),
-						content: 'With synergies and shared services'
-					},
-					{
-						image: require('../assets/cards/r5.svg'),
-						content: 'Build a group of high impact restaurant chains home deliverers and caterers!'
-					},
-					{
-						image: require('../assets/cards/r6.svg'),
-						content: 'A true powerhouse of sustainable out of home (and to the home) food brands'
-					},
-				]
-			}
-		]
+      {
+        title: 'THE OPPORTUNITY',
+        bullits: [
+          {
+            image: require('../assets/cards/r1.svg'),
+            content: 'Invest in the best restaurant chains, home deliverers and caterers'
+          },
+          {
+            image: require('../assets/cards/r2.svg'),
+            content: 'Help them to improve and grow faster'
+          },
+          {
+            image: require('../assets/cards/r3.svg'),
+            content: 'With a platform for innovation and impact'
+          },
+          {
+            image: require('../assets/cards/r4.svg'),
+            content: 'With synergies and shared services'
+          },
+          {
+            image: require('../assets/cards/r5.svg'),
+            content: 'Build a group of high impact restaurant chains home deliverers and caterers!'
+          },
+          {
+            image: require('../assets/cards/r6.svg'),
+            content: 'A true powerhouse of sustainable out of home (and to the home) food brands'
+          },
+        ]
+      }
+    ]
 
     onMounted(() => {
       tl.to('.animate-right-left', { clipPath: 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', duration: 0.35 })
@@ -285,8 +285,8 @@ export default {
       photos()
     });
 
-    return { challenge, photos, menu, menuScroll}
-  },  
+    return { challenge, photos, menu, menuScroll }
+  },
 }
 
 </script>
@@ -297,7 +297,7 @@ export default {
 }
 
 .hero h1 {
-  margin: 60px 0 30px 0%;
+  margin: 60px 0 60px 0%;
   text-align: right;
   padding-left: 30%;
 }
@@ -381,7 +381,7 @@ export default {
 }
 
 .our-story h4 {
-  margin: 0 0 -10px 0;
+  margin: 20px 0 0 0;
 }
 
 .our-story p {
@@ -411,7 +411,7 @@ export default {
 }
 
 .form {
-	max-width: 420px;
+  max-width: 420px;
   margin: auto;
 }
 

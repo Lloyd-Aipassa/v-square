@@ -1,6 +1,6 @@
 <template>
-    <img ref="getMenu2" src="../assets/menu/menu-open.svg" alt="menu image" class="menu-img"
-        @click="openMenu(); openMenu2(), darkBackGround()">
+    <img ref="getButton" src="../assets/menu/menu-open.svg" alt="menu image" class="menu-img"
+        @click="openMenu(), moveButton(), darkBackGround()">
     <img src="../assets/mobile-menu.svg" alt="" class="mobile-menu-img" @click="openMobileMenu(), darkBackGround()">
 
     <!-- =============Desktop=============== -->
@@ -8,13 +8,19 @@
         <ul>
             <li v-for="{ title, link } in menu">
                 <router-link ref="links" :to="link">
-                    <h3 class="links">{{ title }}</h3>
+                    <div class="arrow">
+                        <h3 class="links">{{ title }}</h3>
+                        <img src="../assets/menu/arrow.svg" alt="">
+                    </div>
                 </router-link>
             </li>
 
             <li v-for="{ title2, link2 } in menuScroll">
-                <router-link @click="openMenu(); openMenu2(), darkBackGround()" :to="link2">
-                    <h4 class="links">{{ title2 }}</h4>
+                <router-link @click="openMenu(), moveButton(), darkBackGround()" :to="link2">
+                    <div class="arrow">
+                        <h4 class="links">{{ title2 }}</h4>
+                        <img src="../assets/menu/arrow.svg" alt="">
+                    </div>
                 </router-link>
             </li>
         </ul>
@@ -25,13 +31,20 @@
         <ul>
             <li v-for="{ title, link } in menu">
                 <router-link ref="links" :to="link">
-                    <h3 class="links">{{ title }}</h3>
+                    <div class="arrow">
+                        <h3 class="links">{{ title }}</h3>
+                        <img src="../assets/menu/arrow.svg" alt="">
+                    </div>
                 </router-link>
             </li>
 
             <li v-for="{ title2, link2 } in menuScroll">
+
                 <router-link @click="openMobileMenu(), darkBackGround()" :to="link2">
-                    <h4 class="links">{{ title2 }}</h4>
+                    <div class="arrow">
+                        <h4 class="links">{{ title2 }}</h4>
+                        <img src="../assets/menu/arrow.svg" alt="">
+                    </div>
                 </router-link>
             </li>
         </ul>
@@ -52,9 +65,9 @@ export default {
         const openMenu = () => {
             getMenu.value.classList.toggle('open')
         }
-        const getMenu2 = ref(null)
-        const openMenu2 = () => {
-            getMenu2.value.classList.toggle('open')
+        const getButton = ref(null)
+        const moveButton = () => {
+            getButton.value.classList.toggle('open')
         }
 
         // MOBILE
@@ -69,7 +82,7 @@ export default {
             dark.value.classList.toggle('opacity')
         }
 
-        return { openMenu, getMenu, openMenu2, getMenu2, dark, darkBackGround, mobileMenu, openMobileMenu }
+        return { openMenu, getMenu, moveButton, getButton, dark, darkBackGround, mobileMenu, openMobileMenu }
     }
 }
 </script>
@@ -114,6 +127,13 @@ img.menu-img {
     display: none;
 }
 
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+}
+
 ul {
     list-style: none;
 }
@@ -125,6 +145,11 @@ li a {
 
 h3 {
     font-size: 2.1874rem;
+    margin: 10px;
+}
+
+h4 {
+    margin: 7.5px;
 }
 
 .links {
@@ -192,5 +217,17 @@ h3 {
         align-items: center;
         transition: all 1s;
     }
+
+    .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    h3 {
+    font-size: 2.1874rem;
+    margin: 0px;
+}
 }
 </style>
